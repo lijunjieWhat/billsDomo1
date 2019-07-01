@@ -1,0 +1,116 @@
+body{
+	background-color: #F8F8F8;
+}
+#div1{
+text-align: center;
+}
+#div1>.panel-default{
+	margin: 0 auto;
+	width: 1200px;
+	margin-top: 30px;
+}
+
+#myform{
+ line-height: 34px;
+  height: 34px;
+}
+
+.btn-jizhang { 
+  color: #FFFFFF; 
+  background-color: #54B09F; 
+  border-color: #CFCFCF; 
+} 
+
+.table th{ 
+	text-align: center; 
+	height:38px;
+}
+ 
+ 
+ /*bootstrap  样式补充*/
+.btn-jizhang:hover, 
+.btn-jizhang:focus, 
+.btn-jizhang:active, 
+.btn-jizhang.active, 
+.open .dropdown-toggle.btn-jizhang { 
+  color: #FFFFFF; 
+  background-color: #31C4B3; 
+  border-color: #CFCFCF; 
+} 
+ 
+.btn-jizhang:active, 
+.btn-jizhang.active, 
+.open .dropdown-toggle.btn-jizhang { 
+  background-image: none; 
+} 
+ 
+.btn-jizhang.disabled, 
+.btn-jizhang[disabled], 
+fieldset[disabled] .btn-jizhang, 
+.btn-jizhang.disabled:hover, 
+.btn-jizhang[disabled]:hover, 
+fieldset[disabled] .btn-jizhang:hover, 
+.btn-jizhang.disabled:focus, 
+.btn-jizhang[disabled]:focus, 
+fieldset[disabled] .btn-jizhang:focus, 
+.btn-jizhang.disabled:active, 
+.btn-jizhang[disabled]:active, 
+fieldset[disabled] .btn-jizhang:active, 
+.btn-jizhang.disabled.active, 
+.btn-jizhang[disabled].active, 
+fieldset[disabled] .btn-jizhang.active { 
+  background-color: #54B09F; 
+  border-color: #CFCFCF; 
+} 
+ 
+.btn-jizhang .badge { 
+  color: #54B09F; 
+  background-color: #FFFFFF; 
+}
+
+
+
+
+
+
+
+
+
+
+/*add*/
+#div2>.container>.row{
+text-align: center;
+}
+#div2>.container>.form-horizontal>.panel-default{
+text-align: center;
+}
+#div2>.container>.form-horizontal>.panel-default{
+	margin: 0 auto;
+	width: 600px;
+	margin-top: 10px;
+	height: 60px;
+	position: relative;
+}
+/*#div2>.panel-default>.panel-body>.form-horizontal>span{
+		padding-top: 10px;
+}*/
+#div2>.container>.form-horizontal>.form-group{
+	margin: 0 auto;
+	width: 600px;
+	height: 60px;
+	position: relative;
+	top: 10px;
+}
+
+#btn{
+	position: relative;
+	margin-left: -180px;
+	left: 50%;
+	top: 50px;
+}
+#type{
+	margin-left: 270px;
+}
+#page{
+	text-align: center;
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soft863.mapper.BillsMapper">
+
+    <sql id="where">
+        <where>
+            <if test="billsType!=null and !&quot;&quot;.equals(billsType) and !billsType.id.equals(0)">
+                typeid=#{billsType.id}
+            </if>
+            <if test="startDate!=null and !&quot;&quot;.equals(startDate)and (endDate==null or &quot;&quot;.equals(endDate))">
+                and  date >#{startDate}
+            </if>
+            <if test="(startDate!=null and !&quot;&quot;.equals(startDate)) and (endDate!=null and !&quot;&quot;.equals(endDate))">
+                AND  date >=#{startDate} and date &lt;#{endDate}
+            </if>
+        </where>
+    </sql>
+    <resultMap id="billsType" type="bills">
+        <id property="id" column="id"></id>
+        <result property="title" column="title"></result>
+        <result property="date" column="date"></result>
+        <result property="price" column="price"></result>
+        <result property="content" column="content"></result>
+        <association property="billsType"
+                     select="com.soft863.mapper.BillsMapper.selectTypeById"
+                     column="typeid"
+        ></association>
+    </resultMap>
+
+    <select id="queryAllBillsBy" resultMap="billsType">
+      select * from bills1
+        <include refid="where"></include>
+        ORDER BY date DESC
+      limit #{start},#{end}
+    </select>
+
+    <select id="selectTypeById" resultType="com.soft863.bean.BillsType">
+        SELECT * FROM bill_type1 WHERE id = #{id}
+    </select>
+
+    <!--查询总条数-->
+    <select id="queryCount" resultType="int">
+        select COUNT(1) from bills1
+        <include refid="where"></include>
+    </select>
+
+    <!--添加账单-->
+    <insert id="insertBills">
+        insert into bills1 (title, date, price, content, typeid) values (#{title},#{date},#{price},#{content},#{billsType.id});
+    </insert>
+
+
+
+    <select id="queryBillsById" resultMap="billsType">
+        select * from bills1 WHERE id = #{id};
+    </select>
+
+    <!--修改账单-->
+    <update id="updateBills">
+update bills1
+<set>
+    <if test="title!=null and !&quot;&quot;.equals(title)">
+        title = #{title},
+    </if>
+
+    <if test="billsType!=null and !&quot;&quot;.equals(billsType)">
+        typeid = #{billsType.id},
+    </if>
+
+    <if test="price!=null and !&quot;&quot;.equals(price)">
+        price = #{price},
+    </if>
+
+    <if test="content!=null and !&quot;&quot;.equals(content)">
+        content = #{content},
+    </if>
+</set>
+        WHERE id = #{id}
+    </update>
+
+
+    <delete id="delete">
+        delete from bills1 where id = #{id};
+    </delete>
+</mapper>
