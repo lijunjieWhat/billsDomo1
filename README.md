@@ -1,2 +1,2 @@
-# shop-vue
-springboot+vue 实现购物车
+
+一个初学者的ssm的账单管理  bootstrap，jQuery，js
